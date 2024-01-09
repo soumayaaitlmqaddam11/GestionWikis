@@ -1,0 +1,17 @@
+{
+    "name": "youcode/jobease_php_mvc",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "soumaya",
+            "email": "soumiatinghir119@gmail.com"
+        }
+    ],
+    "require": {
+        "aziz403/ux-datatable": "*"
+    }
+}

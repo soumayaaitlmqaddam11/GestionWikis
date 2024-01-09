@@ -13,9 +13,9 @@
 <body>
 <div class="wrapper">
     <h2>Registration</h2>
-  <form method="post" action="?route=register_user">
+  <form method="post" action="?route=register">
     <div class="input-box">
-    <input name="username" type="text" placeholder="Enter your username" required>
+    <input name="nom" type="text" placeholder="Enter your username" required>
     </div>
     <div class="input-box">
         <input type="text" name="email" placeholder="Enter your email" required>

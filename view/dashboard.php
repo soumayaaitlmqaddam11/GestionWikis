@@ -109,7 +109,7 @@
                                     <div>
                                         <p class="mb-0">Offres</p>
                                         <div class="mt-4">
-                                            <h3><strong><?php echo $totalOffres; ?></strong></h3>
+                                            <h3><strong></strong></h3>
                                             
                                         </div>
                                     </div>

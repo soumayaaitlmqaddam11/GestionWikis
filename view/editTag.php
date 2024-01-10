@@ -22,14 +22,16 @@
                 <div class="col">
                     <div class="">
                         <label class="form-label">Nom</label>
-                        <input type="text" class="form-control first_name" name="nom">
+                        <input type="text" class="form-control first_name" name="nom"
+                            value="<?= htmlspecialchars($tag['nom']); ?>">
                     </div>
 
                 </div>
 
             <div class="d-flex w-100 justify-content-center">
                 <p class="error text-danger"></p>
-                <button type="submit" class="btn btn-success btn-block mb-4 me-4 save">Save Edit</button>
+                <button type="submit" class="btn btn-success btn-block mb-4 me-4 save">Enregistrer les
+                    modifications</button>
                 <div class="col-sm-3">
                     <div class="d-grid">
                         <a class="btn btn-outline-primary"  href="?route=tags" role="button">Cancel</a>

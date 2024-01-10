@@ -110,15 +110,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                    
+                        <?php
+                        $tags = $this->showAllTags();
+                        ?>
+                        <?php foreach ($tags as $tag): ?>
                             <tr>
-                                <td></td>
-                                <td></td>
                                 <td>
-                                    <a href="index.php?route=deleteArticle&id="><img class="delet_user" src="assets/img/user-x.svg" alt=""></a>
-                                    <a href="index.php?route=editTag&id="><img  src="assets/img/edit.svg" alt=""></a>
+                                    <?= $tag['id']; ?>
+                                </td>
+                                <td>
+                                    <?= $tag['nom']; ?>
+                                </td>
+                                <td>
+                                    <a href="index.php?route=deleteTag&id=<?= $tag['id']; ?>">
+                                        <img class="delete_user" src="assets/img/user-x.svg" alt="Delete">
+                                    </a>
+                                    <a href="index.php?route=updateTag&id=<?= $tag['id']; ?>">
+                                        <img src="assets/img/edit.svg" alt="Edit">
+                                    </a>
                                 </td>
                             </tr>
+                        <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </section> 

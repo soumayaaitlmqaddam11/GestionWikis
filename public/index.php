@@ -55,14 +55,14 @@ switch ($route) {
                 $TagController = new TagController();
                 $TagController->addTag();
                 break;
-        case 'editTag':
-                $TagController = new TagController();
-                $TagController->editTag();
-                break;
         case 'deleteTag':
                 $TagController = new TagController();
                 $TagController->deleteTag();
                 break;
+        case 'updateTag':
+                $TagController = new TagController();
+                $TagController->updateTag();
+                break; 
         case 'dashboard':
                 $DashboardController = new DashboardController();
                 $DashboardController->index();

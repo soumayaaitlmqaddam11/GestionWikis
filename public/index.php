@@ -1,4 +1,6 @@
 <?php
+use App\Controllers\StatistiqueController;
+use App\Controllers\WikiController;
 
 session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -75,7 +77,22 @@ switch ($route) {
                 $CategorieController = new CategorieController();
                 $CategorieController->categorie();
                 break;
-        // Add more cases for other routes as needed    
+        case 'statistique':
+                $statistiqueController = new StatistiqueController();
+                $statistiqueController->statistique();
+                break;  
+        case 'wiki':
+                $wikiController = new WikiController();
+                $wikiController->wikis();
+                break; 
+        case 'addwiki':
+                $wikiController = new WikiController();
+                $wikiController->addwiki();
+                break; 
+        case 'editwiki':
+                $wikiController = new WikiController();
+                $wikiController->editwiki();
+                break; 
         default:
                 // Handle 404 or redirect to the default route
                 header('HTTP/1.0 404 Not Found');

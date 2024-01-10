@@ -36,6 +36,9 @@
                         <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg"
                                 alt="icon">Categorie</a>
                     </li>
+                    <li class="sidebar_item">
+                        <a href="?route=wiki" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis</a>
+                    </li>
 
                 </ul>
 

@@ -30,16 +30,16 @@
                                 alt="icon">Statistique</a>
                     </li>
         
-                    <li class="sidebar_item active">
+                    <li class="sidebar_item ">
                         <a href="?route=tags" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Tags</a>
                     </li>
                     <li class="sidebar_item ">
                         <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg" alt="icon">Categorie</a>
                     </li>
-                    <li class="sidebar_item">
+                    <li class="sidebar_item active">
                         <a href="?route=wiki" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis</a>
                     </li>
-                </ul>
+            </ul>
         </aside>
         <div class="main">
             <nav class="navbar justify-content-space-between pe-4 ps-2">
@@ -100,41 +100,40 @@
                 <table class="agent table align-middle bg-white">
                     <div class="d-flex justify-content-end mb-3">
                         <!-- Button to trigger the modal -->
-                        <a href="?route=addTag">
+                        <a href="?route=addwiki">
                             <button class="btn btn-primary">
-                                Add New Tags
+                                Add New Wikis
                             </button></a>
                     </div>
                     <thead class="bg-light">
                         <tr>
 
                             <th>ID</th>
-                            <th>Nom</th>
-                            <th>Actions</th>
+                            <th>Titre</th>
+                            <th>Contenu</th>
+                            <th>Categorie</th>
+                            <th>Tag</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $tags = $this->showAllTags();
-                        ?>
-                        <?php foreach ($tags as $tag): ?>
                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
                                 <td>
-                                    <?= $tag['id']; ?>
-                                </td>
-                                <td>
-                                    <?= $tag['nom']; ?>
-                                </td>
-                                <td>
-                                    <a href="index.php?route=deleteTag&id=<?= $tag['id']; ?>">
+                                    <a href="">
                                         <img class="delete_user" src="assets/img/user-x.svg" alt="Delete">
                                     </a>
-                                    <a href="index.php?route=updateTag&id=<?= $tag['id']; ?>">
+                                    <a href="index.php?route=editwiki">
                                         <img src="assets/img/edit.svg" alt="Edit">
                                     </a>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        
 
                     </tbody>
                 </table>

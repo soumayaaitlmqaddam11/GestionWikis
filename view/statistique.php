@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,21 +24,23 @@
                 </div>
 
                 <ul class="sidebar_nav">
-                    <li class="sidebar_item" style="width: 100%;">
+                    <li class="sidebar_item" active>
                         <a href="?route=statistique" class="sidebar_link"> <img src="assets/img/1. overview.svg"
                                 alt="icon">Statistique</a>
                     </li>
-        
-                    <li class="sidebar_item active">
+
+                    <li class="sidebar_item">
                         <a href="?route=tags" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Tags</a>
                     </li>
-                    <li class="sidebar_item ">
-                        <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg" alt="icon">Categorie</a>
+                    <li class="sidebar_item">
+                        <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg"
+                                alt="icon">Categorie</a>
                     </li>
                     <li class="sidebar_item">
                         <a href="?route=wiki" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis</a>
                     </li>
                 </ul>
+
         </aside>
         <div class="main">
             <nav class="navbar justify-content-space-between pe-4 ps-2">
@@ -48,7 +49,7 @@
                 </button>
                 <div class="navbar  gap-4">
                     <div class="">
-                        <input type="search"  id="getName" class="search " placeholder="Search">
+                        <input type="search" id="getName" class="search " placeholder="Search">
                         <img class="search_icon" src="assets/img/search.svg" alt="iconicon">
                     </div>
                     <!-- <img src="assets/img/search.svg" alt="icon"> -->
@@ -96,49 +97,7 @@
                     </ul>
                 </div>
             </nav>
-            <section class="Agents px-4">
-                <table class="agent table align-middle bg-white">
-                    <div class="d-flex justify-content-end mb-3">
-                        <!-- Button to trigger the modal -->
-                        <a href="?route=addTag">
-                            <button class="btn btn-primary">
-                                Add New Tags
-                            </button></a>
-                    </div>
-                    <thead class="bg-light">
-                        <tr>
-
-                            <th>ID</th>
-                            <th>Nom</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $tags = $this->showAllTags();
-                        ?>
-                        <?php foreach ($tags as $tag): ?>
-                            <tr>
-                                <td>
-                                    <?= $tag['id']; ?>
-                                </td>
-                                <td>
-                                    <?= $tag['nom']; ?>
-                                </td>
-                                <td>
-                                    <a href="index.php?route=deleteTag&id=<?= $tag['id']; ?>">
-                                        <img class="delete_user" src="assets/img/user-x.svg" alt="Delete">
-                                    </a>
-                                    <a href="index.php?route=updateTag&id=<?= $tag['id']; ?>">
-                                        <img src="assets/img/edit.svg" alt="Edit">
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-
-                    </tbody>
-                </table>
-            </section> 
+           
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

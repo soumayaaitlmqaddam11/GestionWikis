@@ -15,32 +15,33 @@
 
 <body>
 
+
     <div class="container">
         <form id="forms" method="POST">
-            <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row mb-4">
                 <div class="col">
                     <div class="">
                         <label class="form-label">Nom</label>
-                        <input type="text" class="form-control first_name" name="nom">
+                        <input type="text" class="form-control first_name" name="nom"
+                            value="<?= htmlspecialchars($category['nom']); ?>">
                     </div>
-
                 </div>
+            </div>
 
             <div class="d-flex w-100 justify-content-center">
                 <p class="error text-danger"></p>
-                <button type="submit" class="btn btn-success btn-block mb-4 me-4 save">Save Edit</button>
+                <button type="submit" class="btn btn-success btn-block mb-4 me-4 save">Enregistrer les
+                    modifications</button>
                 <div class="col-sm-3">
                     <div class="d-grid">
-                        <a class="btn btn-outline-primary"  href="?route=categorie" role="button">Cancel</a>
+                        <a class="btn btn-outline-primary" href="?route=categorie" role="button">Annuler</a>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    </form>
 
-    </div>
+
     </div>
 </body>
 

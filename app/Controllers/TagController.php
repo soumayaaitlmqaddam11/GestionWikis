@@ -12,6 +12,8 @@ class TagController
     public function editTag() {
         require(__DIR__ .'../../../view/editTag.php');
     }
+    public function deleteTag() {
+    }
     }
     
 

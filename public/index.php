@@ -38,21 +38,30 @@ switch ($route) {
                 $authentification = new Authentification($conn);
                 $authentification->logout();
                 break;
-        case 'editTag':
-                $edittagcontroller = new TagController();
-                $edittagcontroller->editTag();
-                break;
-        case 'editCategorie':
+        
+        case 'updateCategorie':
                 $CategorieController = new CategorieController();
-                $CategorieController->editCategorie();
-                break;
+                $CategorieController->updateCategorie();
+                break;       
         case 'addCategorie':
                 $CategorieController = new CategorieController();
                 $CategorieController->addCategorie();
                 break;
+        case 'deleteCategorie':
+                $CategorieController = new CategorieController();
+                $CategorieController->deleteCategorie();
+                break;
         case 'addTag':
                 $TagController = new TagController();
                 $TagController->addTag();
+                break;
+        case 'editTag':
+                $TagController = new TagController();
+                $TagController->editTag();
+                break;
+        case 'deleteTag':
+                $TagController = new TagController();
+                $TagController->deleteTag();
                 break;
         case 'dashboard':
                 $DashboardController = new DashboardController();

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,17 +28,18 @@
                         <a href="?route=statistique" class="sidebar_link"> <img src="assets/img/1. overview.svg"
                                 alt="icon">Statistique</a>
                     </li>
-        
+
                     <li class="sidebar_item ">
                         <a href="?route=tags" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Tags</a>
                     </li>
                     <li class="sidebar_item ">
-                        <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg" alt="icon">Categorie</a>
+                        <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg"
+                                alt="icon">Categorie</a>
                     </li>
                     <li class="sidebar_item active">
                         <a href="?route=wiki" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis</a>
                     </li>
-            </ul>
+                </ul>
         </aside>
         <div class="main">
             <nav class="navbar justify-content-space-between pe-4 ps-2">
@@ -48,7 +48,7 @@
                 </button>
                 <div class="navbar  gap-4">
                     <div class="">
-                        <input type="search"  id="getName" class="search " placeholder="Search">
+                        <input type="search" id="getName" class="search " placeholder="Search">
                         <img class="search_icon" src="assets/img/search.svg" alt="iconicon">
                     </div>
                     <!-- <img src="assets/img/search.svg" alt="icon"> -->
@@ -102,12 +102,11 @@
                         <!-- Button to trigger the modal -->
                         <a href="?route=addwiki">
                             <button class="btn btn-primary">
-                                Add New Wikis
+                                Add New Wiki
                             </button></a>
                     </div>
                     <thead class="bg-light">
                         <tr>
-
                             <th>ID</th>
                             <th>Titre</th>
                             <th>Contenu</th>
@@ -117,27 +116,44 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($wikis as $wiki): ?>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                
                                 <td>
-                                    <a href="">
+                                    <?= $wiki['id'] ?>
+                                </td>
+                                <td>
+                                    <?= $wiki['titre'] ?>
+                                </td>
+                                <td>
+                                    <?= $wiki['contenu'] ?>
+                                </td>
+                                <td>
+                                    <?= $wiki['categorie'] ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    // Supposons que les tags soient stockés dans un tableau associatif dans la variable $tags
+                                    foreach ($tags as $tag) {
+                                        echo $tag['nom'] . ', ';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <a href="index.php?route=deletewiki&id=<?= $wiki['id']; ?>">
                                         <img class="delete_user" src="assets/img/user-x.svg" alt="Delete">
                                     </a>
-                                    <a href="index.php?route=editwiki">
-                                        <img src="assets/img/edit.svg" alt="Edit">
-                                    </a>
-                                </td>
-                            </tr>
-                        
 
+                                    <a href="index.php?route=updatewiki&id=<?= $wiki['id']; ?>"><img
+                                            src="assets/img/edit.svg" alt="Edit"></a>
+
+
+                                </td>
+
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
-            </section> 
+            </section>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

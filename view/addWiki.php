@@ -16,56 +16,63 @@
 <body>
     <div class="container mb-4">
 
-        <form action="?route=addwiki" id="forms" method="POST" enctype="multipart/form-data">
-            <div class="row mb-4">
+    <form action="?route=addwiki" id="forms" method="POST" enctype="multipart/form-data">
+    <div class="row mb-4">
+        <div class="col">
+            <div class="">
+                <label class="form-label">Titre</label>
+                <input type="text" class="form-control email" name="titre">
+            </div>
+            <div class="">
+                <label class="form-label">Contenu</label>
+                <div><textarea name="contenu" id="" cols="175" rows="5" width="10px"></textarea></div>
+            </div>
 
-                <div class="col">
-                    <div class="">
-                        <label class="form-label">Titre</label>
-                        <input type="text" class="form-control email" name="titre">
-                    </div>
-                    <div class="">
-                        <label class="form-label">Contenu</label>
-                        <div><textarea name="contenu" id="" cols="175" rows="5" width="10px"></textarea></div>
-                    </div>
-                    <div class="row mb-3">
-                        <div> <label class="col-sm-3 col-form-label">Categorie</label></div>
-                        <div class="col-sm-6">
-                            <select class="form-select" multiple aria-label="multiple select example" name="id_categorie">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="row mb-3">
-                            <div> <label class="col-sm-3 col-form-label">Tag</label></div>
-                            <div class="col-sm-6">
-                                <select class="form-select" multiple aria-label="multiple select example" name="tag_id">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <label class="col-form-label">Categorie</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-select" name="id_categorie">
+                        <option selected>Choisissez une catégorie</option>
+                        <?php foreach ($categories as $categorie) : ?>
+                            <option value="<?= $categorie['id'] ?>"><?= $categorie['nom'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
 
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <label class="col-form-label">Tags</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
+                        <option selected>Choisissez des tags</option>
+                        <?php foreach ($tags as $tag) : ?>
+                            <option value="<?= $tag['id'] ?>"><?= $tag['nom'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
 
-                    <div class=" row mb-3">
-                        <div class="offset-sm-3 col-sm-3">
-                            <div class="d-grid">
-                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="d-grid">
-                                <a class="btn btn-outline-primary" href="?route=wiki" role="button">Cancel</a>
-                            </div>
-                        </div>
+            <div class="row mb-3">
+                <div class="offset-sm-3 col-sm-3">
+                    <div class="d-grid">
+                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                     </div>
-        </form>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="d-grid">
+                        <a class="btn btn-outline-primary" href="?route=wiki" role="button">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
     </div>
 
 

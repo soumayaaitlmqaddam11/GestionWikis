@@ -1,7 +1,4 @@
 <?php
-use App\Controllers\StatistiqueController;
-use App\Controllers\WikiController;
-
 session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/Models/Database.php'; 
@@ -11,6 +8,8 @@ use App\Controllers\DashboardController;
 use App\Controllers\Authentification;
 use App\Controllers\CategorieController;
 use App\Controllers\TagController;
+use App\Controllers\StatistiqueController;
+use App\Controllers\WikiController;
 
 
 $database = new Database();
@@ -89,9 +88,13 @@ switch ($route) {
                 $wikiController = new WikiController();
                 $wikiController->addwiki();
                 break; 
-        case 'editwiki':
+        case 'updatewiki':
                 $wikiController = new WikiController();
-                $wikiController->editwiki();
+                $wikiController->updatewiki();
+                break; 
+        case 'deletewiki':
+                $wikiController = new WikiController();
+                $wikiController->deletewiki();
                 break; 
         default:
                 // Handle 404 or redirect to the default route

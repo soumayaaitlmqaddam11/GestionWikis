@@ -51,5 +51,6 @@ public function editCategorie($id, $nom)
    
     return $stmt->execute();
 }
+
 }
 ?>

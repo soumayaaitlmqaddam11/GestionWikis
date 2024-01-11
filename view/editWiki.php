@@ -8,50 +8,49 @@
     <link rel="stylesheet" href="dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
     <div class="container">
-        <form id="forms" method="POST">
-            <!-- 2 column grid layout with text inputs for the first and last names -->
+        <form id="forms" method="POST" action="?route=updatewiki&id=<?= $wiki['id'] ?>">
+
+            <!-- Ajout d'un champ caché pour transmettre l'ID du wiki à mettre à jour -->
+            <input type="hidden" name="wiki_id" value="<?= $wiki['id'] ?>">
+
             <div class="row mb-4">
-            <div class="col">
+                <div class="col">
                     <div class="">
                         <label class="form-label">Titre</label>
-                        <input type="text" class="form-control email" name="titre">
-                    </div>
-                    <div class="">
+                        <input type="text" class="form-control email" name="titre" value="<?= htmlspecialchars($wiki['titre'] ?? '') ?>">
+
                         <label class="form-label">Contenu</label>
-                        <div><textarea name="contenu" id="" id="" cols="175" rows="5" ></textarea></div>
-                    </div>
-                    <div class="row mb-3">
-                        <div> <label class="col-sm-3 col-form-label">Categorie</label></div>
+                        <textarea name="contenu" cols="175" rows="5"><?= htmlspecialchars($wiki['contenu'] ?? '') ?></textarea>
+
+                        <label class="col-sm-3 col-form-label">Catégorie</label>
                         <div class="col-sm-6">
-                            <select class="form-select" multiple aria-label="multiple select example" name="id_categorie">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="form-select" name="id_categorie">
+                                <option selected>Choisissez une catégorie</option>
+                                <?php foreach ($categories as $categorie) : ?>
+                                    <option value="<?= $categorie['id'] ?>"><?= htmlspecialchars($categorie['nom']) ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="row mb-3">
-                            <div> <label class="col-sm-3 col-form-label">Tag</label></div>
-                            <div class="col-sm-6">
-                                <select class="form-select" multiple aria-label="multiple select example" name="tag_id">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
+
+                        <label class="col-sm-3 col-form-label">Tag</label>
+                        <div class="col-sm-6">
+                            <select class="form-select" multiple aria-label="multiple select example" name="tag_id[]">
+                                <!-- Boucle sur les tags -->
+                                <?php foreach ($tags as $tag): ?>
+                                    <option value="<?= $tag['id'] ?>">
+                                        <?= htmlspecialchars($tag['nom']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
-
                 </div>
+            </div>
 
             <div class="d-flex w-100 justify-content-center">
                 <p class="error text-danger"></p>
@@ -59,16 +58,16 @@
                     modifications</button>
                 <div class="col-sm-3">
                     <div class="d-grid">
-                        <a class="btn btn-outline-primary"  href="?route=wiki" role="button">Cancel</a>
+                        <a class="btn btn-outline-primary" href="?route=wiki" role="button">Annuler</a>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    </form>
 
-    </div>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

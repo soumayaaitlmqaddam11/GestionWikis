@@ -1,3 +1,7 @@
+<?php
+use App\Controllers\StatistiqueController;
+$statistiqueController = new StatistiqueController();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +101,38 @@
                     </ul>
                 </div>
             </nav>
-           
+             <!-- Contenu principal -->
+    <div class="content">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">Tags</h5>
+                            <!--  echo $rowTotalUsers'total_users' pouraccéder a total user  -->
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">Categories</h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">Wikis</h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

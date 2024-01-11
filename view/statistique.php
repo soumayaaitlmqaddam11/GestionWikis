@@ -109,6 +109,7 @@ $statistiqueController = new StatistiqueController();
                     <div class="card bg-primary text-white">
                         <div class="card-body">
                             <h5 class="card-title">Tags</h5>
+                            <p>Nombre total de tags : <?= $totalTags; ?></p>
                             <!--  echo $rowTotalUsers'total_users' pouraccéder a total user  -->
                             <p class="card-text"></p>
                         </div>
@@ -118,6 +119,7 @@ $statistiqueController = new StatistiqueController();
                     <div class="card bg-success text-white">
                         <div class="card-body">
                             <h5 class="card-title">Categories</h5>
+                            <p>Nombre total de categories : <?= $totalCategories; ?></p>
                             <p class="card-text"></p>
                         </div>
                     </div>
@@ -126,6 +128,7 @@ $statistiqueController = new StatistiqueController();
                     <div class="card bg-warning text-dark">
                         <div class="card-body">
                             <h5 class="card-title">Wikis</h5>
+                            <p>Nombre total de wikis : <?= $totalWikis; ?></p>
                             <p class="card-text"></p>
                         </div>
                     </div>

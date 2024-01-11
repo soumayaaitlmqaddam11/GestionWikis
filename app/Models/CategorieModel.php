@@ -52,5 +52,16 @@ public function editCategorie($id, $nom)
     return $stmt->execute();
 }
 
+public function getTotalCategories()
+{
+    $query = "SELECT COUNT(*) as total FROM categorie";
+    $statement = $this->pdo->prepare($query);
+    $statement->execute();
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $result['total'];
+}
+
 }
 ?>

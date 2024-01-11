@@ -61,6 +61,16 @@ class WikiModel
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+    public function getTotalWikis()
+    {
+        $query = "SELECT COUNT(*) as total FROM wiki";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $result['total'];
+    }
 
 }
 

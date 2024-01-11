@@ -51,5 +51,15 @@ public function editTag($id, $nom)
    
     return $stmt->execute();
 }
+public function getTotalTags()
+{
+    $query = "SELECT COUNT(*) as total FROM tag";
+    $statement = $this->pdo->prepare($query);
+    $statement->execute();
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $result['total'];
+}
 }
 ?>

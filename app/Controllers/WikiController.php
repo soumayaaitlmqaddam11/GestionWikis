@@ -116,5 +116,9 @@ public function editwiki()
         }
     }
     }
+    public function statistique() {
+        require(__DIR__ .'../../../view/statistique.php');
+    }
+  
     }
 ?>

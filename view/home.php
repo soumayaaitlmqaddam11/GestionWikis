@@ -1,4 +1,14 @@
+<?php
+use App\Models\TagModel;
+use App\Models\WikiModel;
 
+$wikiModel = new WikiModel();
+
+
+$wikis = $wikiModel->getAllWikisWithCategories();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,15 +90,15 @@
 		<h2>Find Your Dream Job</h2>
 		<form class="form-inline">
 			<div class="form-group mb-2">
-				<input type="text" id ="keywords" class="key" name="keywords" placeholder="Keywords">
+				<input type="text" id ="wiki" class="key" name="wiki" placeholder="wiki">
 
 
 			</div>
 			<div class="form-group mx-sm-3 mb-2">
-				<input type="text" name="location"  class="key" placeholder="Location">
+				<input type="text" name="categorie"  class="key" placeholder="categorie">
 			</div>
 			<div class="form-group mx-sm-3 mb-2">
-				<input type="text" name="company"  class="key" placeholder="Company">
+				<input type="text" name="tag"  class="key" placeholder="tag">
 			</div>
 			<button type="button" onclick="search()" class="btn btn-primary mb-2">Search</button>
             <div id="results">
@@ -98,11 +108,84 @@
 
 	<!--------------------------  card  --------------------->
 
+	<section class="light">
+    <h2 class="text-center py-3">Latest Wikis Listings</h2>
+    <div class="container py-2" id="search">
+        <?php foreach ($wikis as $wiki): ?>
+            <article class="postcard light green">
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="" alt="Image Title" />
+                </a>
+                <div class="postcard__text t-dark">
+                    <h3 class="postcard__title green">
+                        <a href="#">
+                            <?php echo $wiki['titre']; ?>
+                        </a>
+                    </h3>
+                    <div class="postcard__subtitle small">
+                        <time datetime="2020-05-25 12:00:00">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <?php echo $wiki['categorie']; ?>
+                        </time>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">
+                        <?php echo $wiki['contenu']; ?>
+                    </div>
+                    <ul class="postcard__tagbox">
+                        <?php
+                        $tagModel = new TagModel();
+                        $tags = $tagModel->getTagsByWikiId($wiki['id']);
+                        
+                        foreach ($tags as $tag): ?>
+                            <li class="tag__item">
+                                <i class="fas fa-tag mr-2"></i><?php echo $tag['nom']; ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </article>
+        <?php endforeach; ?>
+    </div>
+</section>
 
 
 
-
-
+<!--------------------------  card  --------------------->
+	<section class="light">
+		<h2 class="text-center py-3">Latest Wikis Listings</h2>
+		<div class="container py-2" id="search">	
+			<article class="postcard light green">
+				<a class="postcard__img_link" href="#">
+					
+					<img class="postcard__img" src="" alt="Image Title" />
+				</a>
+				<div class="postcard__text t-dark">
+					<h3 class="postcard__title green">
+						<a href="#">
+							ddddddddd
+						</a></h3>
+					<div class="postcard__subtitle small">
+						<time datetime="2020-05-25 12:00:00">
+							<i class="fas fa-calendar-alt mr-2"></i>
+							qqqqqqqqq
+						</time>
+					</div>
+					<div class="postcard__bar"></div>
+					<div class="postcard__preview-txt">
+						hhhhhhhhhhhhh
+					</div>
+					<ul class="postcard__tagbox">
+						<li class="tag__item"><i class="fas fa-tag mr-2"></i>Maroc</li>
+						<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+						<li class="tag__item play green">
+							<a href="#"><i class="fas fa-play mr-2"></i>APPLY NOW</a>
+						</li>
+					</ul>
+				</div>
+			</article>
+		</div>
+	</section>
 
 
 
@@ -118,7 +201,7 @@
 	console.log(inputs);
     function search(){
         const request =new XMLHttpRequest();
-        request.open("GET",`?route=search&key=${inputs[0].value}&company=${inputs[1].value}&location=${inputs[2].value}`);
+        request.open("GET",`?route=search&wiki=${inputs[0].value}&categorie=${inputs[1].value}&tag=${inputs[2].value}`);
         request.send();
         request.onreadystatechange=function(){
         if(this.readyState===4 && this.status===200){

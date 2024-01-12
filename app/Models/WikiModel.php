@@ -21,8 +21,16 @@ class WikiModel
                   ORDER BY wiki.id ASC";
     
         $result = $this->pdo->query($query);
+    
+        if (!$result) {
+            // Add some debugging information
+            var_dump($this->pdo->errorInfo());
+            die("Error executing query");
+        }
+    
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
+    
     
 
     public function getWikiById($id)

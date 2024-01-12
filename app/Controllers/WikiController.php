@@ -84,11 +84,10 @@ public function editwiki()
     {
         $wikiId = isset($_GET['id']) ? $_GET['id'] : null;
 
-        // Récupérez les informations du wiki depuis votre modèle
         $wikiModel = new WikiModel();
-        $wiki = $wikiModel->getWikiById($wikiId); // Assurez-vous d'implémenter cette méthode dans votre modèle
+        $wiki = $wikiModel->getWikiById($wikiId); 
     
-        // Récupérez les catégories et tags
+       
         $categorieModel = new CategorieModel();
         $categories = $categorieModel->getAllCategories();
     
@@ -119,6 +118,13 @@ public function editwiki()
     public function statistique() {
         require(__DIR__ .'../../../view/statistique.php');
     }
-  
+    public function hom()
+    {
+        $wikiModel = new WikiModel();
+        $wikis = $wikiModel->getAllWikisWithCategories();
+    
+        require(__DIR__ . '/../../view/hom.php');
+    }
+    
     }
 ?>

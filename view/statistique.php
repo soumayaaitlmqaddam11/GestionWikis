@@ -1,7 +1,3 @@
-<?php
-use App\Controllers\StatistiqueController;
-$statistiqueController = new StatistiqueController();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,7 +97,6 @@ $statistiqueController = new StatistiqueController();
                     </ul>
                 </div>
             </nav>
-             <!-- Contenu principal -->
     <div class="content">
         <div class="container my-5">
             <div class="row">
@@ -110,7 +105,6 @@ $statistiqueController = new StatistiqueController();
                         <div class="card-body">
                             <h5 class="card-title">Tags</h5>
                             <p>Nombre total de tags : <?= $totalTags; ?></p>
-                            <!--  echo $rowTotalUsers'total_users' pouraccéder a total user  -->
                             <p class="card-text"></p>
                         </div>
                     </div>

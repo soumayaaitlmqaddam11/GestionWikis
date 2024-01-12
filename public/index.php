@@ -1,4 +1,5 @@
 <?php
+use App\Controllers\SearchController;
 session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/Models/Database.php'; 
@@ -95,7 +96,15 @@ switch ($route) {
         case 'deletewiki':
                 $wikiController = new WikiController();
                 $wikiController->deletewiki();
+                break;
+        case 'hom':
+                $wikiController = new WikiController();
+                $wikiController->hom();
                 break; 
+        case 'search':
+                $searchController = new SearchController();
+                $searchController->search();
+                break;   
         default:
                 // Handle 404 or redirect to the default route
                 header('HTTP/1.0 404 Not Found');

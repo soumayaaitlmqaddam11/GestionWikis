@@ -274,8 +274,6 @@
                       <input type="text" class="form-control task-desc" >
                     
                 </div>
-              
-                <!-- select input -->
                 <div class="mb-4">
                     <label class="form-label">Status</label>
                         <select class="form-control" name="task status" id="status">

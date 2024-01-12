@@ -99,7 +99,6 @@
             <section class="Agents px-4">
                 <table class="agent table align-middle bg-white">
                     <div class="d-flex justify-content-end mb-3">
-                        <!-- Button to trigger the modal -->
                         <a href="?route=addwiki">
                             <button class="btn btn-primary">
                                 Add New Wiki
@@ -132,7 +131,6 @@
                                 </td>
                                 <td>
                                     <?php
-                                    // Supposons que les tags soient stockés dans un tableau associatif dans la variable $tags
                                     foreach ($tags as $tag) {
                                         echo $tag['nom'] . ', ';
                                     }

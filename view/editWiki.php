@@ -14,8 +14,6 @@
 
     <div class="container">
         <form id="forms" method="POST" action="?route=updatewiki&id=<?= $wiki['id'] ?>">
-
-            <!-- Ajout d'un champ caché pour transmettre l'ID du wiki à mettre à jour -->
             <input type="hidden" name="wiki_id" value="<?= $wiki['id'] ?>">
 
             <div class="row mb-4">
@@ -40,7 +38,6 @@
                         <label class="col-sm-3 col-form-label">Tag</label>
                         <div class="col-sm-6">
                             <select class="form-select" multiple aria-label="multiple select example" name="tag_id[]">
-                                <!-- Boucle sur les tags -->
                                 <?php foreach ($tags as $tag): ?>
                                     <option value="<?= $tag['id'] ?>">
                                         <?= htmlspecialchars($tag['nom']) ?>

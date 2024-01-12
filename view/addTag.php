@@ -13,9 +13,7 @@
 <body>
     <div class="container">
 
-    <!-- les informations qui j'entre seront sécurisés avec la methode poste -->
      <form action= "?route=addTag" id="forms" method="POST" enctype="multipart/form-data">
-                            <!-- 2 column grid layout with text inputs for the first and last names -->
                             <div class="row mb-4">
                             
                               <div class="col">

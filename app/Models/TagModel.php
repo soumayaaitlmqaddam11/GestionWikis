@@ -61,5 +61,17 @@ public function getTotalTags()
 
     return $result['total'];
 }
+public function getTagsByWikiId($wikiId)
+{
+    $query = "SELECT tag.nom FROM tag
+              JOIN details ON tag.id = details.id_tag
+              WHERE details.id_wiki = :wiki_id";
+
+    $stmt = $this->pdo->prepare($query);
+    $stmt->bindParam(':wiki_id', $wikiId);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }
 ?>

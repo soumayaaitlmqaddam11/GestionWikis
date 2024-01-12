@@ -87,7 +87,7 @@ $wikis = $wikiModel->getAllWikisWithCategories();
 	</header>
 
 	<section action="#" method="get" class="search">
-		<h2>Find Your Dream Job</h2>
+		<h2>Find Wikis</h2>
 		<form class="form-inline">
 			<div class="form-group mb-2">
 				<input type="text" id ="wiki" class="key" name="wiki" placeholder="wiki">
@@ -114,7 +114,7 @@ $wikis = $wikiModel->getAllWikisWithCategories();
         <?php foreach ($wikis as $wiki): ?>
             <article class="postcard light green">
                 <a class="postcard__img_link" href="#">
-                    <img class="postcard__img" src="" alt="Image Title" />
+                    <img class="postcard__img" src="/assets/img/logowiki.jpg" alt="Image Title" />
                 </a>
                 <div class="postcard__text t-dark">
                     <h3 class="postcard__title green">
@@ -152,40 +152,7 @@ $wikis = $wikiModel->getAllWikisWithCategories();
 
 
 <!--------------------------  card  --------------------->
-	<section class="light">
-		<h2 class="text-center py-3">Latest Wikis Listings</h2>
-		<div class="container py-2" id="search">	
-			<article class="postcard light green">
-				<a class="postcard__img_link" href="#">
-					
-					<img class="postcard__img" src="" alt="Image Title" />
-				</a>
-				<div class="postcard__text t-dark">
-					<h3 class="postcard__title green">
-						<a href="#">
-							ddddddddd
-						</a></h3>
-					<div class="postcard__subtitle small">
-						<time datetime="2020-05-25 12:00:00">
-							<i class="fas fa-calendar-alt mr-2"></i>
-							qqqqqqqqq
-						</time>
-					</div>
-					<div class="postcard__bar"></div>
-					<div class="postcard__preview-txt">
-						hhhhhhhhhhhhh
-					</div>
-					<ul class="postcard__tagbox">
-						<li class="tag__item"><i class="fas fa-tag mr-2"></i>Maroc</li>
-						<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-						<li class="tag__item play green">
-							<a href="#"><i class="fas fa-play mr-2"></i>APPLY NOW</a>
-						</li>
-					</ul>
-				</div>
-			</article>
-		</div>
-	</section>
+	
 
 
 
@@ -251,7 +218,7 @@ $wikis = $wikiModel->getAllWikisWithCategories();
 
  
 	<footer>
-		<p>© 2023 JobEase </p>
+		<p>© 2023 Gestion Wikis </p>
 	</footer>
     <!-- <script src="script.js">
     </script> -->

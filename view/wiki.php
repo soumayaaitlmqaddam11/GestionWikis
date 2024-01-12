@@ -24,20 +24,9 @@
                 </div>
 
                 <ul class="sidebar_nav">
-                    <li class="sidebar_item" style="width: 100%;">
-                        <a href="?route=statistique" class="sidebar_link"> <img src="assets/img/1. overview.svg"
-                                alt="icon">Statistique</a>
-                    </li>
-
-                    <li class="sidebar_item ">
-                        <a href="?route=tags" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Tags</a>
-                    </li>
-                    <li class="sidebar_item ">
-                        <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg"
-                                alt="icon">Categorie</a>
-                    </li>
+                  
                     <li class="sidebar_item active">
-                        <a href="?route=wiki" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis</a>
+                        <a href="?route=wikiarchive" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis Archive</a>
                     </li>
                 </ul>
         </aside>
@@ -90,7 +79,7 @@
                             <div class="dropdown-menu dropdown-menu-end position-absolute">
                                 <a class="dropdown-item" href="#">Profile</a>
                                 <a class="dropdown-item" href="#">Account Setting</a>
-                                <a class="dropdown-item" href="/PeoplePerTask/project/pages/index.html">Log out</a>
+                                <a class="dropdown-item" href="../">Log out</a>
                             </div>
                         </li>
                     </ul>

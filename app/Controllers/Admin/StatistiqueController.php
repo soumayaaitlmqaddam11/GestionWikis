@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use App\Models\WikiModel;
 use App\Models\TagModel;
@@ -17,7 +17,7 @@ class StatistiqueController
         $totalTags = $tagModel->getTotalTags();
         $totalCategories = $categorieModel->getTotalCategories();
 
-        require(__DIR__ . '/../../view/statistique.php');
+        require(__DIR__ . '/../../../view/statistique.php');
 
     }
 }

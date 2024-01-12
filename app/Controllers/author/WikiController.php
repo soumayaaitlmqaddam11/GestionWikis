@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use App\Models\WikiModel;
 use App\Models\TagModel;
@@ -18,7 +18,7 @@ class WikiController
     $tagModel = new TagModel();
     $tags = $tagModel->getAllTags();
 
-    require(__DIR__ . '/../../view/wiki.php');
+    require(__DIR__ . '/../../../view/wiki.php');
 }
     
 

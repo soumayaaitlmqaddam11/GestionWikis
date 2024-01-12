@@ -24,24 +24,11 @@
                 </div>
 
                 <ul class="sidebar_nav">
-                    <li class="sidebar_item" style="width: 100%;">
-                        <a href="?route=statistique" class="sidebar_link"> <img src="assets/img/1. overview.svg"
-                                alt="icon">Statistique</a>
-                    </li>
-
-                    <li class="sidebar_item">
-                        <a href="?route=tags" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Tags</a>
-                    </li>
+                  
                     <li class="sidebar_item active">
-                        <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg"
-                                alt="icon">Categorie</a>
-                    </li>
-                    <li class="sidebar_item">
                         <a href="?route=wikiarchive" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis Archive</a>
                     </li>
-
                 </ul>
-
         </aside>
         <div class="main">
             <nav class="navbar justify-content-space-between pe-4 ps-2">
@@ -101,44 +88,56 @@
             <section class="Agents px-4">
                 <table class="agent table align-middle bg-white">
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="?route=addCategorie">
+                        <a href="?route=addwiki">
                             <button class="btn btn-primary">
-                                Add New categorie
-                            </button>
-                        </a>
+                                Add New Wiki
+                            </button></a>
                     </div>
                     <thead class="bg-light">
                         <tr>
                             <th>ID</th>
-                            <th>Nom</th>
-                            <th>Actions</th>
+                            <th>Titre</th>
+                            <th>Contenu</th>
+                            <th>Categorie</th>
+                            <th>Tag</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $categories = $this->showAllCategories();
-                        ?>
-                        <?php foreach ($categories as $cat): ?>
+                        <?php foreach ($wikis as $wiki): ?>
                             <tr>
                                 <td>
-                                    <?= $cat['id']; ?>
+                                    <?= $wiki['id'] ?>
                                 </td>
                                 <td>
-                                    <?= $cat['nom']; ?>
+                                    <?= $wiki['titre'] ?>
                                 </td>
                                 <td>
-                                    <a href="index.php?route=deleteCategorie&id=<?= $cat['id']; ?>">
-                                        <img class="delete_user" src="assets/img/user-x.svg" alt="Delete">
-                                    </a>
-                                    <a href="index.php?route=updateCategorie&id=<?= $cat['id']; ?>">
-                                        <img src="assets/img/edit.svg" alt="Edit">
-                                    </a>
+                                    <?= $wiki['contenu'] ?>
                                 </td>
+                                <td>
+                                    <?= $wiki['categorie'] ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    foreach ($tags as $tag) {
+                                        echo $tag['nom'] . ', ';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <a href="index.php?route=deletewiki&id=<?= $wiki['id']; ?>">
+                                        <button>archiver</button>
+                                    </a>
+
+                                    
+
+
+                                </td>
+
                             </tr>
                         <?php endforeach; ?>
-
                     </tbody>
-
                 </table>
             </section>
         </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 
 use App\Models\CategorieModel;
@@ -9,7 +9,7 @@ class CategorieController
 {
     public function categorie()
     {
-        require(__DIR__ . '/../../view/categorie.php');
+        require(__DIR__ . '/../../../view/categorie.php');
     }
     
     public function showAllCategories()

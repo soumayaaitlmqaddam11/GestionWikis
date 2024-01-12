@@ -1,16 +1,18 @@
 <?php
-use App\Controllers\SearchController;
+use App\Controllers\Admin\WikiArciveController;
+
 session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/Models/Database.php'; 
 
 use App\Controllers\HomeController;
-use App\Controllers\DashboardController;
 use App\Controllers\Authentification;
-use App\Controllers\CategorieController;
-use App\Controllers\TagController;
-use App\Controllers\StatistiqueController;
-use App\Controllers\WikiController;
+use App\Controllers\Admin\CategorieController;
+use App\Controllers\Admin\TagController;
+use App\Controllers\Admin\StatistiqueController;
+use App\Controllers\Admin\WikiController;
+use App\Controllers\Author\DashboardController;
+use App\Controllers\SearchController;
 
 
 $database = new Database();
@@ -65,10 +67,6 @@ switch ($route) {
                 $TagController = new TagController();
                 $TagController->updateTag();
                 break; 
-        case 'dashboard':
-                $DashboardController = new DashboardController();
-                $DashboardController->index();
-                break;
         case 'tags':
                 $ContactController = new TagController();
                 $ContactController->tags();
@@ -104,7 +102,15 @@ switch ($route) {
         case 'search':
                 $searchController = new SearchController();
                 $searchController->search();
-                break;   
+                break;  
+        case 'dashboard':
+                $dashboardController = new DashboardController();
+                $dashboardController->index();
+                break; 
+        case 'wikiarchive':
+                $wikiArciveController = new WikiArciveController();
+                $wikiArciveController->archive();
+                break;  
         default:
                 // Handle 404 or redirect to the default route
                 header('HTTP/1.0 404 Not Found');

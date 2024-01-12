@@ -1,11 +1,11 @@
 <?php
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 use App\Models\TagModel;
 
 class TagController
 {
     public function tags() {
-        require(__DIR__ .'../../../view/tags.php');
+        require(__DIR__ .'/../../../view/tags.php');
     }
     public function showAllTags()
     {

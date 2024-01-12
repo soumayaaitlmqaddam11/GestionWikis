@@ -25,14 +25,13 @@ class UserModel
         $stmt = $this->conn->prepare("SELECT * FROM utilisateur WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
         if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['id']= $user['id'];
-            $_SESSION['email']=$user['email'];
-            $_SESSION['password']=$user['password'];
-            return $user;
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['role'] = $user['role']; 
+            return true;
         } else {
-        // returne false mène qu'il y'a un problème dans l'authentification 
             return false;
         }
     }

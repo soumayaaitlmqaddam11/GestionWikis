@@ -30,7 +30,7 @@ class CategorieController
             echo "La catégorie a été ajoutée avec succès.";
         } else {
 
-            require_once(__DIR__ . '/../../view/addCategorie.php');
+            require_once(__DIR__ . '/../../../view/addCategorie.php');
         }
     }
 
@@ -46,7 +46,7 @@ class CategorieController
             $id = htmlspecialchars($_GET['id']);
             $categorieModel = new CategorieModel();
             $category = $categorieModel->getCategoryById($id); 
-        } require(__DIR__ . '/../../view/editCategorie.php');
+        } require(__DIR__ . '/../../../view/editCategorie.php');
     }
     public function deleteCategorie()
     {

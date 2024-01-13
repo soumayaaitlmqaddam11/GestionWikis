@@ -80,6 +80,13 @@ class WikiModel
         return $result['total'];
     }
 
+
+    public function archive($id) {
+        $sql="UPDATE wiki SET archived=1 where id=$id";
+        $stmt = $this->pdo->query($sql);
+        
+    }
+
 }
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\Author;
 
 use App\Models\WikiModel;
 use App\Models\TagModel;
@@ -48,7 +48,7 @@ public function addwiki()
             echo "Erreur lors de l'ajout du wiki.";
         }
     } else {
-        require(__DIR__ . '/../../view/addwiki.php');
+        require(__DIR__ . '/../../../view/addwiki.php');
     }
 }
 
@@ -94,7 +94,7 @@ public function editwiki()
         $tagModel = new TagModel();
         $tags = $tagModel->getAllTags();
 
-        require(__DIR__ . '/../../view/editwiki.php');
+        require(__DIR__ . '/../../../view/editwiki.php');
     }
 
    public function deletewiki()

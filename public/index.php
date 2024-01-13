@@ -1,6 +1,4 @@
 <?php
-use App\Controllers\Admin\WikiArciveController;
-
 session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/Models/Database.php'; 
@@ -10,9 +8,10 @@ use App\Controllers\Authentification;
 use App\Controllers\Admin\CategorieController;
 use App\Controllers\Admin\TagController;
 use App\Controllers\Admin\StatistiqueController;
-use App\Controllers\Admin\WikiController;
+use App\Controllers\Author\WikiController;
 use App\Controllers\Author\DashboardController;
 use App\Controllers\SearchController;
+use App\Controllers\Admin\WikiArciveController;
 
 
 $database = new Database();
@@ -103,14 +102,18 @@ switch ($route) {
                 $searchController = new SearchController();
                 $searchController->search();
                 break;  
-        case 'dashboard':
-                $dashboardController = new DashboardController();
-                $dashboardController->index();
-                break; 
         case 'wikiarchive':
                 $wikiArciveController = new WikiArciveController();
                 $wikiArciveController->archive();
                 break;  
+        case 'archiivewiki':
+                $wikiArciveController = new WikiArciveController();
+                $wikiArciveController->archiveitem();
+                break;  
+        case 'statistiqueAuteur':
+                $statistiqueAuteurController = new StatistiqueController();
+                $statistiqueAuteurController->statistiqueAuteur();
+                        break;  
         default:
                 // Handle 404 or redirect to the default route
                 header('HTTP/1.0 404 Not Found');

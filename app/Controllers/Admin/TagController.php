@@ -24,7 +24,7 @@ class TagController
                 echo "La catégorie a été ajoutée avec succès.";
             }else {
             } 
-        require(__DIR__ .'../../../view/addTag.php');}
+        require(__DIR__ .'/../../../view/addTag.php');}
     }
    
     public function deleteTag()
@@ -49,7 +49,7 @@ class TagController
             $id = htmlspecialchars($_GET['id']);
             $tagModel = new TagModel();
             $tag = $tagModel->getTagById($id); 
-        } require(__DIR__ . '/../../view/editTag.php');
+        } require(__DIR__ . '/../../../view/editTag.php');
     }
     }
     

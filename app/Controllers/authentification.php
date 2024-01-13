@@ -28,7 +28,7 @@ class Authentification
                             header("location:index.php?route=categorie");
                             break;
                         case 'auteur':
-                            header("location:index.php?route=dashboard");
+                            header("location:index.php?route=wiki");
                             break;
                     }
                 } else {

@@ -24,10 +24,22 @@
                 </div>
 
                 <ul class="sidebar_nav">
-                  
+                    <li class="sidebar_item" style="width: 100%;">
+                        <a href="?route=statistique" class="sidebar_link"> <img src="assets/img/1. overview.svg"
+                                alt="icon">Statistique</a>
+                    </li>
+
+                    <li class="sidebar_item">
+                        <a href="?route=tags" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Tags</a>
+                    </li>
+                    <li class="sidebar_item">
+                        <a href="?route=categorie" class="sidebar_link"><img src="assets/img/articles.svg"
+                                alt="icon">Categorie</a>
+                    </li>
                     <li class="sidebar_item active">
                         <a href="?route=wikiarchive" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis Archive</a>
                     </li>
+
                 </ul>
         </aside>
         <div class="main">
@@ -126,7 +138,7 @@
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="index.php?route=deletewiki&id=<?= $wiki['id']; ?>">
+                                    <a href="index.php?route=archiivewiki&id=<?= $wiki['id']; ?>">
                                         <button>archiver</button>
                                     </a>
 

@@ -67,11 +67,8 @@ $wikis = $wikiModel->getAllWikisWithCategories();
 							<a class="nav-link" href="#">EN</a>
 						</span>
 						<li class="nav-item">
-							<?php if (isset($_SESSION['id'])) { ?>
-								<a class="nav-link" href="?route=logout">Logout</a>
-							<?php } else { ?>
 								<a class="nav-link" href="?route=login">Login</a>
-							<?php } ?>
+						
 						</li>
 					</ul>
 				</div>

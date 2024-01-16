@@ -1,6 +1,8 @@
 <?php
 namespace App\Models;
 use PDO;
+USE App\Models\Database;
+
 
 class DetailsModel
 {
@@ -8,7 +10,8 @@ class DetailsModel
 
     public function __construct()
     {
-        $this->pdo = new PDO("mysql:host=localhost;dbname=wikis", "root", "");
+        $con = new \Database;
+        $this ->pdo = $con->getConnection();
     }
 
     public function addTagsToWiki($wikiId, $tagIds)

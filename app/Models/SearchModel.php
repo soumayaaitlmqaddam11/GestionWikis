@@ -1,11 +1,14 @@
 <?php
 namespace App\Models;
 use PDO;
+USE App\Models\Database;
 class SearchModel {
     private $pdo;
 
     public function __construct() {
-        $this->pdo = new PDO("mysql:host=localhost;dbname=wikis", "root", "");
+     
+        $con = new \Database;
+        $this ->pdo = $con->getConnection();
     }
 
     public function search($searchTerm)

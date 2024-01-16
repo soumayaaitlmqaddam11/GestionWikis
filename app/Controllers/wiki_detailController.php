@@ -2,9 +2,10 @@
 namespace App\Controllers;
 use App\Models\WikiModel;
 
+
 class Wiki_detailController
 {
-    private $wiki;
+    public $wiki;
 
     public function __construct()
     {
@@ -14,10 +15,12 @@ class Wiki_detailController
         if(isset($_GET['id'])){
             $id=$_GET['id'];
             $wikis=$this->wiki->getWikiById($id);
+        
+            require(__DIR__ .'/../../view/wiki_detail.php');
         }
       
 
-        require(__DIR__ .'/../../view/wiki_detail.php');
+        
     }
     }
     

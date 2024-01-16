@@ -29,15 +29,18 @@ public function addwiki()
 
     $tagModel = new TagModel();
     $tags = $tagModel->getAllTags();
+    $author = isset($_SESSION['id']) ? $_SESSION['id'] :'';
+  
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $titre = htmlspecialchars($_POST['titre']);
         $contenu = htmlspecialchars($_POST['contenu']);
         $id_categorie = htmlspecialchars($_POST['id_categorie']);
         $tag_ids = isset($_POST['tag_ids']) ? $_POST['tag_ids'] : [];
+      
 
         $wikiModel = new WikiModel();
-        $wikiId = $wikiModel->addwiki($titre, $contenu, $id_categorie);
+        $wikiId = $wikiModel->addwiki($titre, $contenu, $id_categorie,$author);
 
         if ($wikiId) {
             $detailsModel = new DetailsModel();
@@ -49,50 +52,35 @@ public function addwiki()
         }
     } else {
         require(__DIR__ . '/../../../view/addwiki.php');
+        
     }
 }
-
-public function editwiki()
-{
-    $wikiId = isset($_GET['id']) ? $_GET['id'] : null;
-
-    if (!$wikiId) {
-        echo "ID du wiki non spécifié.";
-        return;
-    }
-
-    $wikiModel = new WikiModel();
-    $wiki = $wikiModel->getWikiById($wikiId);
-
-    if (!$wiki) {
-        echo "Le wiki avec l'ID spécifié n'existe pas.";
-        return;
-    }
-
-    $categorieModel = new CategorieModel();
-    $categories = $categorieModel->getAllCategories();
-
-    $tagModel = new TagModel();
-    $tags = $tagModel->getAllTags();
-
-    require(__DIR__ . '/../../view/editwiki.php');
-}
-
-
-
     public function updatewiki()
     {
-        $wikiId = isset($_GET['id']) ? $_GET['id'] : null;
 
-        $wikiModel = new WikiModel();
+       $wikiId = isset($_GET['id']) ? $_GET['id'] : null;
+       
+       $wikiModel = new WikiModel();
         $wiki = $wikiModel->getWikiById($wikiId); 
+       
     
        
         $categorieModel = new CategorieModel();
         $categories = $categorieModel->getAllCategories();
     
         $tagModel = new TagModel();
-        $tags = $tagModel->getAllTags();
+        $tags = $tagModel->getAllTags($_GET['id']);
+        $tages = $tagModel->getAllTags();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $titre = htmlspecialchars($_POST['titre']);
+            $contenu = htmlspecialchars($_POST['contenu']);
+            $id_categorie = htmlspecialchars($_POST['id_categorie']);
+            $tag_ids = isset($_POST['tag_ids']) ? $_POST['tag_ids'] : [];
+
+            $wikiModel->updatewiki($wikiId, $titre, $contenu, $id_categorie);
+            header('Location: ?route=wiki');
+        }    
+        
 
         require(__DIR__ . '/../../../view/editwiki.php');
     }

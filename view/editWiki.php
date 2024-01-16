@@ -1,3 +1,4 @@
+<?php  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +9,14 @@
     <link rel="stylesheet" href="dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body>
 
     <div class="container">
-        <form id="forms" method="POST" action="?route=updatewiki&id=<?= $wiki['id'] ?>">
+        <form id="forms" method="POST" action="">
             <input type="hidden" name="wiki_id" value="<?= $wiki['id'] ?>">
 
             <div class="row mb-4">
@@ -37,12 +40,19 @@
 
                         <label class="col-sm-3 col-form-label">Tag</label>
                         <div class="col-sm-6">
-                            <select class="form-select" multiple aria-label="multiple select example" name="tag_id[]">
-                                <?php foreach ($tags as $tag): ?>
-                                    <option value="<?= $tag['id'] ?>">
+                            <select id="mySelect" name="tags[]" multiple style="width: 100%; " placeholder="u can">
+                                <?php 
+                                 foreach ($tags as $tag): ?>
+                                    <option value="<?= $tag['id'] ?>" selected>
                                         <?= htmlspecialchars($tag['nom']) ?>
                                     </option>
+                                <?php endforeach; 
+                                foreach ($tages as $tags): ?>
+                                    <option value="<?= $tags['id'] ?>" >
+                                        <?= htmlspecialchars($tags['nom']) ?>
+                                    </option>
                                 <?php endforeach; ?>
+
                             </select>
                         </div>
                     </div>
@@ -65,6 +75,14 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>
+            $("#mySelect").select2();
+        </script>
 </body>
 
 </html>
+<!-- ---------- -->

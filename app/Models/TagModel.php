@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+USE App\Models\Database;
 use PDO;
 
 class TagModel
@@ -10,15 +10,30 @@ class TagModel
 
     public function __construct()
     {
-        $this->pdo = new PDO("mysql:host=localhost;dbname=wikis", "root", "");
+        $con = new \Database;
+        $this ->pdo = $con->getConnection();
     }
 
-    public function getAllTags()
+    public function getAllTags($id="")
     {
-        $query = $this->pdo->query("SELECT * FROM tag");
-        $tags = $query->fetchAll(PDO::FETCH_ASSOC);    
-        return $tags;
-    }
+        
+            if ($id !== "") {
+                $stmt = $this->pdo->prepare("SELECT T.nom,T.id FROM tag T INNER JOIN details D ON D.id_tag = T.id INNER JOIN wiki W ON W.id = D.id_wiki WHERE W.id = :ide");
+                $stmt->bindParam(':ide', $id);
+                $stmt->execute();
+                $tags = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $tags;
+            }
+        
+            $stmt = $this->pdo->query("SELECT * FROM tag");
+            $tags = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $tags;
+        }
+        
+        
+        
+        
+    
     
 
     public function addTag($nom)

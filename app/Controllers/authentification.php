@@ -22,6 +22,7 @@ class Authentification
                 echo 'Email ou mot de passe requis';
             } else {
                 if ($this->userModel->loginUser($email, $password)) {
+                    
                     $role = $_SESSION['role'];
                     switch ($role) {
                         case 'admin':

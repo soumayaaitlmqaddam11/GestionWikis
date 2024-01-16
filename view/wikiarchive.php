@@ -100,14 +100,11 @@
             <section class="Agents px-4">
                 <table class="agent table align-middle bg-white">
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="?route=addwiki">
-                            <button class="btn btn-primary">
-                                Add New Wiki
-                            </button></a>
+                        
                     </div>
                     <thead class="bg-light">
                         <tr>
-                            <th>ID</th>
+                            
                             <th>Titre</th>
                             <th>Contenu</th>
                             <th>Categorie</th>
@@ -118,9 +115,7 @@
                     <tbody>
                         <?php foreach ($wikis as $wiki): ?>
                             <tr>
-                                <td>
-                                    <?= $wiki['id'] ?>
-                                </td>
+                              
                                 <td>
                                     <?= $wiki['titre'] ?>
                                 </td>

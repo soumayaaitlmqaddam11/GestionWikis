@@ -21,6 +21,7 @@ CREATE TABLE Wiki (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titre VARCHAR(255),
     contenu TEXT,
+    archived BOOLEAN,
     id_utilisateur INT,
     id_categorie INT,
     FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id) ON DELETE CASCADE ON UPDATE CASCADE,

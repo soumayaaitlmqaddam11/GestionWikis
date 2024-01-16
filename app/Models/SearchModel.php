@@ -1,5 +1,6 @@
 <?php
-
+namespace App\Models;
+use PDO;
 class SearchModel {
     private $pdo;
 
@@ -7,18 +8,20 @@ class SearchModel {
         $this->pdo = new PDO("mysql:host=localhost;dbname=wikis", "root", "");
     }
 
-    public function search($wiki, $categorie, $tag) {
-        $stmt = $this->pdo->prepare("SELECT * FROM jobs WHERE title LIKE :wiki AND company LIKE :categorie AND location LIKE :tag");
+ 
+
+    public function search($searchTerm)
+    {
+        $stmt = "SELECT * FROM wiki WHERE titre LIKE  '%$searchTerm%' ";
+        $result = $this->pdo->query($stmt);
+
+        $searchResults = [];
         
-        $stmt->bindValue(':wiki', '%' . $wiki . '%', PDO::PARAM_STR);
-        $stmt->bindValue(':categorie', '%' . $categorie . '%', PDO::PARAM_STR);
-        $stmt->bindValue(':tag', '%' . $tag . '%', PDO::PARAM_STR);
+        while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
+            $searchResults[] = $row;
+        }
 
-        $stmt->execute();
-
-        $getalph = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $getalph;
+        return $searchResults;
     }
 }
 ?>

@@ -21,10 +21,6 @@ class StatistiqueController
         require(__DIR__ . '/../../../view/statistique.php');
 
     }
-    public function statistiqueAuteur(){
-        $wikiModel = new WikiModel();
-        $totalWikis = $wikiModel->getTotalWikis();
-        require(__DIR__ . '/../../../view/statistiqueAuteur.php');
-    }
+ 
 }
 ?>

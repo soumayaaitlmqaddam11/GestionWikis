@@ -14,24 +14,51 @@
         <div class="wrapper">
             <div class="title"><span>Login Form</span></div>
             <h1></h1>
-            <form method="post" action="">
+            <form method="post" action="" onsubmit="return validateLoginForm()">
                 <div class="row">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="email" placeholder="Email or Phone" required>
+                    <input type="text" id="email" name="email" placeholder="Email or Phone" required>
                 </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="pass"><a href="#">Forgot password?</a></div>
                 <div class="row button">
                     <input type="submit" name="submit" value="Login">
                 </div>
-                <span style="color:red;"></span>
+                <span id="error-message" style="color:red;"></span>
                 <div class="signup-link">Not a member? <a href="index.php?route=register">Signup now</a></div>
             </form>
         </div>
     </div>
+
+    <script>
+        function validateLoginForm() {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var passwordRegex = /^[a-zA-Z0-9]{6,}$/;
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            var errorMessage = '';
+
+            if (!emailRegex.test(email)) {
+                errorMessage += 'Invalid email address. ';
+            }
+
+            if (!passwordRegex.test(password)) {
+                errorMessage += 'Password must contain only letters and numbers, and be at least 6 characters long.';
+            }
+
+            if (errorMessage !== '') {
+                document.getElementById('error-message').innerText = errorMessage;
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 
 </html>

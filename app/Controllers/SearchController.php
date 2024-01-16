@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-use SearchModel;
+use App\Models\SearchModel;
+use App\Models\WikiModel;
 
 class SearchController
 {
@@ -15,10 +16,16 @@ class SearchController
 
     public function search()
     {
-        if (isset($_GET["wiki"]) || isset($_GET["categorie"]) || isset($_GET["tag"])) {
-            $result = $this->search->search($_GET["wiki"], $_GET["categorie"], $_GET["tag"]);
-            echo json_encode($result);
+        $searchTerm = null;
+
+  
+        if (isset($_POST['title']) || isset($_POST['categorie']) || isset($_POST['tag'])) {
+            $searchTerm = isset($_POST['title']) ? $_POST['title'] : (isset($_POST['categorie']) ? $_POST['categorie'] : (isset($_POST['tag']) ? $_POST['tag'] : null));
         }
+        if ($searchTerm !== null) {
+            $wikis = $this->search->search($searchTerm);
+        }
+
+        require(__DIR__ . '../../../view/search.php');
     }
 }
-?>

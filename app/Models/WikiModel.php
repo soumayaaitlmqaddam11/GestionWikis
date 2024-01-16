@@ -23,7 +23,6 @@ class WikiModel
         $result = $this->pdo->query($query);
     
         if (!$result) {
-            // Add some debugging information
             var_dump($this->pdo->errorInfo());
             die("Error executing query");
         }

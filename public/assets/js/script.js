@@ -34,3 +34,4 @@ function addAdminTask() {
     modal.style.display = 'none'
   })
 }
+

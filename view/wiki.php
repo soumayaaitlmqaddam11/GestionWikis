@@ -24,9 +24,7 @@
                 </div>
 
                 <ul class="sidebar_nav">
-                <li class="sidebar_item">
-                        <a href="?route=statistiqueAuteur" class="sidebar_link"><img src="assets/img/1. overview.svg" alt="icon">statistique</a>
-                    </li>
+              
                     <li class="sidebar_item active">
                         <a href="?route=wiki" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Wikis</a>
                     </li>

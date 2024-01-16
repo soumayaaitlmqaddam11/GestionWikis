@@ -25,7 +25,7 @@
             </div>
             <div class="">
                 <label class="form-label">Contenu</label>
-                <div><textarea name="contenu" id="" cols="175" rows="5" width="10px"></textarea></div>
+                <div><textarea name="contenu" id="" cols="150" rows="5"></textarea></div>
             </div>
 
             <div class="row mb-3">

@@ -19,7 +19,7 @@ use App\Models\TagModel;
                 </a>
                 <div class="postcard__text t-dark">
                     <h3 class="postcard__title green">
-                        <a href="#">
+                        <a  href="?route=wiki_detail">
                             <?php echo isset($wiki['titre']) ? $wiki['titre'] : 'Titre non défini'; ?>
                         </a>
                     </h3>

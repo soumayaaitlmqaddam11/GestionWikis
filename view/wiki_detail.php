@@ -1,11 +1,10 @@
 <?php
-use App\Models\TagModel;
-use App\Models\WikiModel;
+use App\Controllers\Wiki_detailController;
+// use App\Models\TagModel;
+// use App\Models\WikiModel;
 
-$wikiModel = new WikiModel();
-
-
-$wikis = $wikiModel->getAllWikisWithCategories();
+$wikiController = new Wiki_detailController ();
+ $wikiController->wiki_detail();
 
 
 ?>

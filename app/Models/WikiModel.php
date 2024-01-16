@@ -8,9 +8,9 @@ class WikiModel
 {
     private $pdo;
 
-    public function __construct()
+    public function getcon()
     {
-        $this->pdo = new PDO("mysql:host=localhost;dbname=wikis", "root", "");
+        return $pdo = new PDO("mysql:host=localhost;dbname=wikis", "root", "");
     }
 
     public function getAllWikisWithCategories()
@@ -20,10 +20,10 @@ class WikiModel
                   JOIN categorie ON wiki.id_categorie = categorie.id
                   ORDER BY wiki.id ASC";
     
-        $result = $this->pdo->query($query);
+        $result = $this->getcon()->query($query);
     
         if (!$result) {
-            var_dump($this->pdo->errorInfo());
+            var_dump($this->getcon()->errorInfo());
             die("Error executing query");
         }
     
@@ -34,8 +34,9 @@ class WikiModel
 
     public function getWikiById($id)
     {
+        
         $query = "SELECT * FROM wiki WHERE id = :id";
-        $stmt = $this->pdo->prepare($query);
+        $stmt = $this->getcon()->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -43,18 +44,18 @@ class WikiModel
 
     public function addwiki($titre, $contenu, $id_categorie)
     {
-        $stmt = $this->pdo->prepare("INSERT INTO wiki (titre, contenu, id_categorie) VALUES (:titre, :contenu, :id_categorie)");
+        $stmt = $this->getcon()->prepare("INSERT INTO wiki (titre, contenu, id_categorie) VALUES (:titre, :contenu, :id_categorie)");
         $stmt->bindParam(':titre', $titre);
         $stmt->bindParam(':contenu', $contenu);
         $stmt->bindParam(':id_categorie', $id_categorie);
         $stmt->execute();
 
-        return $this->pdo->lastInsertId();
+        return $this->getcon()->lastInsertId();
     }
 
     public function updatewiki($id, $titre, $contenu, $id_categorie)
     {
-        $stmt = $this->pdo->prepare("UPDATE wiki SET titre = :titre, contenu = :contenu, id_categorie = :id_categorie WHERE id = :id");
+        $stmt = $this->getcon()->prepare("UPDATE wiki SET titre = :titre, contenu = :contenu, id_categorie = :id_categorie WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':titre', $titre);
         $stmt->bindParam(':contenu', $contenu);
@@ -64,14 +65,14 @@ class WikiModel
 
     public function deletewiki($id)
     {
-        $stmt = $this->pdo->prepare("DELETE FROM wiki WHERE id = :id");
+        $stmt = $this->getcon()->prepare("DELETE FROM wiki WHERE id = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
     public function getTotalWikis()
     {
         $query = "SELECT COUNT(*) as total FROM wiki";
-        $statement = $this->pdo->prepare($query);
+        $statement = $this->getcon()->prepare($query);
         $statement->execute();
 
         $result = $statement->fetch(PDO::FETCH_ASSOC);
@@ -82,7 +83,7 @@ class WikiModel
 
     public function archive($id) {
         $sql="UPDATE wiki SET archived=1 where id=$id";
-        $stmt = $this->pdo->query($sql);
+        $stmt = $this->getcon()->query($sql);
         
     }
 

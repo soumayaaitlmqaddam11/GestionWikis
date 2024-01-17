@@ -95,7 +95,7 @@
                     </div>
                     <thead class="bg-light">
                         <tr>
-                            <th>ID</th>
+                        
                             <th>Titre</th>
                             <th>Contenu</th>
                             <th>Categorie</th>
@@ -106,9 +106,7 @@
                     <tbody>
                         <?php foreach ($wikis as $wiki): ?>
                             <tr>
-                                <td>
-                                    <?= $wiki['id'] ?>
-                                </td>
+                                
                                 <td>
                                     <?= $wiki['titre'] ?>
                                 </td>

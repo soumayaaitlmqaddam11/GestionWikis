@@ -2,8 +2,8 @@
 namespace App\Controllers\Admin;
 use App\Models\WikiModel;
 use App\Models\TagModel;
-use App\Models\DetailsModel;
-use App\Models\CategorieModel;
+// use App\Models\DetailsModel;
+// use App\Models\CategorieModel;
 class WikiArciveController{
 
 public function archive(){

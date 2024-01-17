@@ -128,7 +128,6 @@ $wikis = $wikiModel->getAllWikisWithCategories();
 							</div>
 							<ul class="postcard__tagbox">
 								<?php
-								// Inclure la classe TagModel
 								$tagModel = new TagModel();
 								$tags = $tagModel->getTagsByWikiId($wiki['id']);
 
@@ -148,6 +147,15 @@ $wikis = $wikiModel->getAllWikisWithCategories();
 
 
 	<script>
+
+
+
+
+
+
+
+
+
 
 		function filterwiki() {
 			let title = document.getElementById('title').value;
@@ -203,6 +211,15 @@ $wikis = $wikiModel->getAllWikisWithCategories();
 				},
 			});
 		})();
+
+
+
+
+
+
+
+
+
 
 	</script>
 

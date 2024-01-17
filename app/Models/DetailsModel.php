@@ -25,12 +25,11 @@ class DetailsModel
     }
     public function updateTagsForWiki($wikiId, $tagIds)
     {
-        // Supprimer tous les tags existants associés au wiki
+      
         $stmtDelete = $this->pdo->prepare("DELETE FROM details  WHERE id_wiki = :id_wiki");
         $stmtDelete->bindParam(':id_wiki', $wikiId);
         $stmtDelete->execute();
 
-        // Insérer les nouveaux tags associés au wiki
         $stmtInsert = $this->pdo->prepare("INSERT INTO details (id_wiki, id_tag) VALUES (:id_wiki, :id_tag)");
         $stmtInsert->bindParam(':id_wiki', $wikiId);
 

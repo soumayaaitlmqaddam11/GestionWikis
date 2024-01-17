@@ -64,7 +64,6 @@ class WikiModel
     public function updatewiki($id, $titre, $contenu, $id_categorie)
     {
         try {
-            // Log values for debugging
             error_log("id: $id, titre: $titre, contenu: $contenu");
     
             $stmt = $this->pdo->prepare("UPDATE wiki SET titre = :titre, contenu = :contenu WHERE id = :id");
@@ -76,12 +75,10 @@ class WikiModel
             if ($stmt->execute()) {
                 return true;
             } else {
-                // Print or log any error information for debugging
                 print_r($stmt->errorInfo());
                 return false;
             }
         } catch (PDOException $e) {
-            // Handle exceptions
             echo "Error: " . $e->getMessage();
             return false;
         }

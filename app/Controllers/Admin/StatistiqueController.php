@@ -16,6 +16,7 @@ class StatistiqueController
         $categorieModel = new CategorieModel();
 
         $totalTags = $tagModel->getTotalTags();
+        
         $totalCategories = $categorieModel->getTotalCategories();
 
         require(__DIR__ . '/../../../view/statistique.php');

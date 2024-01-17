@@ -71,6 +71,7 @@ public function addwiki()
         $tagModel = new TagModel();
         $tags = $tagModel->getAllTags($_GET['id']);
         $tages = $tagModel->getAllTags();
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $titre = htmlspecialchars($_POST['titre']);
             $contenu = htmlspecialchars($_POST['contenu']);

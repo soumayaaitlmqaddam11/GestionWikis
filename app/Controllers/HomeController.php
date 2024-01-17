@@ -6,9 +6,7 @@ class HomeController
 {
     public function index()
     {
-        // $userModel = new UserModel();
-    
-        // Fetch data from the "users" table
+        
 
 
         require(__DIR__ .'../../../view/home.php');
